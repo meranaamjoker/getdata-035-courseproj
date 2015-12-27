@@ -70,5 +70,6 @@ excludedCols <- which(names(tidyData) %in% c("Subject", "Activity"))
 
 # Calculate mean for all columns except Subject & Activity
 tidyDataAvg <- ddply(tidyData, .(Subject, Activity), .fun=function(x){ colMeans(x[, -excludedCols]) })
+
 write.table(tidyDataAvg, "clean_and_tidy_avg.txt", row.names=FALSE)
 
